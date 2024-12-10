@@ -1,6 +1,6 @@
 #pragma once
 
-namespace engine::core::input {
+namespace engine::core::runtime::input {
     enum class InputType {
         INPUT_TYPE_UNKNOWN,
         INPUT_TYPE_KEYBOARD,

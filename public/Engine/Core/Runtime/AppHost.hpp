@@ -5,7 +5,7 @@
 
 #include <Engine/Core/Runtime/App.hpp>
 
-namespace engine::core {
+namespace engine::core::runtime {
     struct AppHost {
         virtual ~AppHost() = default;
 

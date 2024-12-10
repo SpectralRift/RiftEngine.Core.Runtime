@@ -14,5 +14,5 @@ namespace engine::core::Platform {
 
     std::string GetName();
 
-    std::unique_ptr<AppHost> GetSuitableHost();
+    std::unique_ptr<runtime::AppHost> GetSuitableHost();
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace engine::core {
+namespace engine::core::runtime {
     struct AppHost;
 
     struct App {
