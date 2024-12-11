@@ -4,6 +4,7 @@
 #include <stdexcept>
 
 #include <Engine/Core/Runtime/App.hpp>
+#include <Engine/Core/Runtime/IWindow.hpp>
 
 namespace engine::core::runtime {
     struct AppHost {
@@ -15,7 +16,6 @@ namespace engine::core::runtime {
 
         virtual void Shutdown() = 0;
 
-        virtual void* GetMainWindow() = 0;
-        virtual void* GetSecondaryWindow() = 0;
+        virtual std::unique_ptr<IWindow> GetMainWindow() = 0;
     };
 }

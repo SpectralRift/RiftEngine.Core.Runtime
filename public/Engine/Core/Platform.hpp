@@ -4,6 +4,7 @@
 #include <string_view>
 
 #include <Engine/Core/Runtime/AppHost.hpp>
+#include <Engine/Core/Runtime/IWindow.hpp>
 
 namespace engine::core::Platform {
     void Init();
@@ -15,4 +16,6 @@ namespace engine::core::Platform {
     std::string GetName();
 
     std::unique_ptr<runtime::AppHost> GetSuitableHost();
+
+    std::unique_ptr<runtime::IWindow> CreateAppWindow();
 }
