@@ -10,6 +10,10 @@ add_library(
 		RiftEngine_Core_Runtime
         private/Engine/Core/Runtime/Memory/MemArena_Standard.cpp
         private/Engine/Core/Runtime/StorageSystem.cpp
+        private/Engine/Core/Runtime/App.cpp
+        private/Engine/Core/Runtime/AppHost.cpp
+        private/Engine/Core/Runtime/Input/InputManager.cpp
+        private/Engine/Core/Runtime/Graphics/Camera3D.cpp
 )
 
 target_include_directories(

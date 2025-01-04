@@ -3,24 +3,30 @@
 #include <vector>
 
 #include <Engine/Core/Math/Vector2.hpp>
-#include <Engine/Core/Runtime/Input/InputConsts.hpp>
 
 namespace engine::core::runtime::input {
     struct IInputDevice;
+    struct InputEvent;
 
     struct InputManager {
         ~InputManager() = default;
 
         void Initialize();
         void Shutdown();
-        void Update();
+
+#ifdef SHOW_PRIVATE_API
+        void PushEvent(InputEvent* ev);
+#endif
+//        std::vector<InputEvent*> ProcessEvents();
 
         std::vector<IInputDevice*> GetDevices();
 
         void RegisterDevice(IInputDevice *device);
         void UnregisterDevice(IInputDevice *device);
 
-//        bool GetButton(InputDeviceButton button);
-//        math::Vector2 GetAxis(InputDeviceAxis axis);
+        static InputManager* Instance();
+    protected:
+        std::vector<IInputDevice*> m_DeviceList;
+        std::vector<InputEvent*> m_Events;
     };
 }

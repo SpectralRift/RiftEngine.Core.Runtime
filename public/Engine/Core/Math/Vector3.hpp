@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cmath>
-//#include <glm/vec3.hpp>
+#include <glm/vec3.hpp>
 
 namespace engine::core::math {
 #pragma pack(push, 1)
@@ -154,13 +154,13 @@ namespace engine::core::math {
             return *this;
         }
 
-//        glm::vec3 ToGlmVec() {
-//            return {
-//                    x,
-//                    y,
-//                    z
-//            };
-//        }
+        glm::vec3 ToGlmVec() const {
+            return {
+                    x,
+                    y,
+                    z
+            };
+        }
     };
 
 #pragma pack(pop)

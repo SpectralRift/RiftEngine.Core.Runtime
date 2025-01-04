@@ -19,6 +19,8 @@ namespace engine::core::runtime {
         virtual void Show() = 0;
         virtual void Hide() = 0;
 
+        virtual bool IsValid() = 0;
+
         virtual void SetTitle(std::string_view title) = 0;
 
         // ToDo: make Vector2 class

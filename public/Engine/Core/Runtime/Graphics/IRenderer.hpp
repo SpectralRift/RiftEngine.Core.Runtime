@@ -7,6 +7,7 @@
 
 namespace engine::core::runtime::graphics {
     struct IVertexBuffer;
+    struct ICamera;
 
     struct UIRenderItem {
         PrimitiveType m_PrimType;
@@ -52,6 +53,9 @@ namespace engine::core::runtime::graphics {
 
         // End the frame and commit the render queue (render calls from the queue list are performed here)
         virtual void EndFrame() = 0;
+
+        // Specify the camera to be used for this frame.
+        virtual void UseCamera(ICamera* camera) = 0;
 
         // Submit a buffer to the renderer to be added to the queue list
         virtual void SubmitMesh(const MeshRenderItem &item) = 0;

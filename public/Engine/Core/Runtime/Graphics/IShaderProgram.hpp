@@ -22,6 +22,8 @@ namespace engine::core::runtime::graphics {
 
         virtual void SetUniformMat4(std::string_view name, const glm::mat4 &mat) = 0;
 
+        virtual void SetUniformI(std::string_view name, int val) = 0;
+
         virtual std::string GetLinkLog() = 0;
 
         virtual bool IsLinked() = 0;

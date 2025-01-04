@@ -17,13 +17,6 @@ namespace engine::core::runtime::input {
         INPUT_DEVICE_BUTTON_MOUSE_RIGHT,
         INPUT_DEVICE_BUTTON_MOUSE_MIDDLE,
 
-        // Keyboard Keys (Just a few examples, can be expanded)
-        INPUT_DEVICE_BUTTON_KEYBOARD_A,
-        INPUT_DEVICE_BUTTON_KEYBOARD_B,
-        INPUT_DEVICE_BUTTON_KEYBOARD_C,
-        INPUT_DEVICE_BUTTON_KEYBOARD_ENTER,
-        INPUT_DEVICE_BUTTON_KEYBOARD_SPACE,
-
         // Gamepad Buttons (Common buttons for gamepads)
         INPUT_DEVICE_BUTTON_GAMEPAD_A,
         INPUT_DEVICE_BUTTON_GAMEPAD_B,
@@ -35,8 +28,14 @@ namespace engine::core::runtime::input {
         INPUT_DEVICE_BUTTON_GAMEPAD_BACK,
         INPUT_DEVICE_BUTTON_GAMEPAD_LS,  // Left stick press
         INPUT_DEVICE_BUTTON_GAMEPAD_RS,  // Right stick press
-
-        // Add more device buttons as needed
+    };
+    
+    enum InputDeviceKey {
+        INPUT_DEVICE_KEY_A,
+        INPUT_DEVICE_KEY_B,
+        INPUT_DEVICE_KEY_C,
+        INPUT_DEVICE_KEY_ENTER,
+        INPUT_DEVICE_KEY_SPACE,
     };
 
     enum class InputEventType {

@@ -17,6 +17,8 @@ namespace engine::core::runtime {
 
         virtual void Shutdown() {}
 
+        static App* GetCurrentApp();
+
     protected:
         AppHost &host;
     };

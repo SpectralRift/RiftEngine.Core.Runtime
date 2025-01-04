@@ -11,18 +11,19 @@ namespace engine::core::runtime::input {
 
         virtual bool Initialize() = 0;
         virtual void Destroy() = 0;
-        virtual void Update() = 0;
+        virtual void Poll() = 0;
 
         virtual std::string GetName() const = 0;
 
         virtual InputDeviceType GetType() const = 0;
-        virtual bool GetButton(InputDeviceButton button) = 0;
+//        virtual bool GetButton(InputDeviceButton button) = 0;
     };
 
     struct IAxisDevice : public IInputDevice {
         virtual ~IAxisDevice() = default;
 
-        virtual math::Vector2 GetAxis(InputDeviceAxis axis) const = 0;
+//        virtual bool HasAxis(InputDeviceAxis axis) const = 0;
+//        virtual math::Vector2 GetAxis(InputDeviceAxis axis) const = 0;
     };
 
     struct ITouchDevice : public IInputDevice {

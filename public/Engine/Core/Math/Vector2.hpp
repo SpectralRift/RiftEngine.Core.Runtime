@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cmath>
-//#include <glm/vec2.hpp>
+#include <glm/vec2.hpp>
 
 namespace engine::core::math {
 #pragma pack(push, 1)
@@ -143,12 +143,12 @@ namespace engine::core::math {
             return x != r.x || y != r.y;
         }
 
-//        glm::vec2 to_glm_vec() {
-//            return {
-//                    x,
-//                    y
-//            };
-//        }
+        glm::vec2 ToGlmVec() const {
+            return {
+                    x,
+                    y
+            };
+        }
     };
 
 #pragma pack(pop)
