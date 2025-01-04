@@ -95,6 +95,8 @@ namespace engine::core::runtime::memory {
             m_ArenaSize = 0;
             m_ArenaCapacity = 0;
         }
+
+        return true;
     }
 
     void *MemArena::Alloc(size_t size) {

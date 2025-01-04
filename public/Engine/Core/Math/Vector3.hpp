@@ -14,10 +14,6 @@ namespace engine::core::math {
                 : x(0.f), y(0.f), z(0.f) {
         }
 
-        Vector3(const Vector3 &rhs)
-                : x(rhs.x), y(rhs.y), z(rhs.z) {
-        }
-
         Vector3(float x, float y, float z)
                 : x(x), y(y), z(z) {
         }

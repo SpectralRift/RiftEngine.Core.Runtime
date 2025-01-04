@@ -13,9 +13,6 @@ namespace engine::core::math {
         Vector2() : x(0), y(0) {
         }
 
-        Vector2(const Vector2 &rhs) : x(rhs.x), y(rhs.y) {
-        }
-
         Vector2(float x, float y) : x(x), y(y) {
         }
 

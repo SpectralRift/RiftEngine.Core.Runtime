@@ -3,7 +3,12 @@
 #include <string_view>
 #include <memory>
 
-#include <Engine\Core\Runtime\Graphics\IGraphicsBackend.hpp>
+#include <Engine/Core/Runtime/Graphics/IGraphicsBackend.hpp>
+
+// forward definition for Window Interface
+namespace engine::core::runtime {
+    struct IWindow;
+}
 
 namespace engine::core::runtime::graphics {
     struct IGraphicsContext {
@@ -19,6 +24,12 @@ namespace engine::core::runtime::graphics {
 
         virtual void Present() = 0;
 
-        virtual IGraphicsBackend* GetBackend() = 0;
+        virtual void PreRender() {};
+
+        virtual void PostRender() {};
+
+        virtual IGraphicsBackend *GetBackend() = 0;
+
+        virtual IWindow *GetOwnerWindow() = 0;
     };
 }

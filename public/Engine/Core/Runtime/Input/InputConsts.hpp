@@ -1,12 +1,42 @@
 #pragma once
 
 namespace engine::core::runtime::input {
-    enum class InputType {
-        INPUT_TYPE_UNKNOWN,
-        INPUT_TYPE_KEYBOARD,
-        INPUT_TYPE_MOUSE,
-        INPUT_TYPE_TOUCH,
-        INPUT_TYPE_GAMEPAD,
+    enum InputDeviceType {
+        INPUT_DEVICE_TYPE_UNKNOWN,
+        INPUT_DEVICE_TYPE_MOUSE,
+        INPUT_DEVICE_TYPE_KEYBOARD,
+        INPUT_DEVICE_TYPE_GAMEPAD,
+        INPUT_DEVICE_TYPE_TOUCH
+    };
+
+    enum InputDeviceButton {
+        INPUT_DEVICE_BUTTON_UNKNOWN,
+
+        // Mouse Buttons
+        INPUT_DEVICE_BUTTON_MOUSE_LEFT,
+        INPUT_DEVICE_BUTTON_MOUSE_RIGHT,
+        INPUT_DEVICE_BUTTON_MOUSE_MIDDLE,
+
+        // Keyboard Keys (Just a few examples, can be expanded)
+        INPUT_DEVICE_BUTTON_KEYBOARD_A,
+        INPUT_DEVICE_BUTTON_KEYBOARD_B,
+        INPUT_DEVICE_BUTTON_KEYBOARD_C,
+        INPUT_DEVICE_BUTTON_KEYBOARD_ENTER,
+        INPUT_DEVICE_BUTTON_KEYBOARD_SPACE,
+
+        // Gamepad Buttons (Common buttons for gamepads)
+        INPUT_DEVICE_BUTTON_GAMEPAD_A,
+        INPUT_DEVICE_BUTTON_GAMEPAD_B,
+        INPUT_DEVICE_BUTTON_GAMEPAD_X,
+        INPUT_DEVICE_BUTTON_GAMEPAD_Y,
+        INPUT_DEVICE_BUTTON_GAMEPAD_LB,  // Left bumper
+        INPUT_DEVICE_BUTTON_GAMEPAD_RB,  // Right bumper
+        INPUT_DEVICE_BUTTON_GAMEPAD_START,
+        INPUT_DEVICE_BUTTON_GAMEPAD_BACK,
+        INPUT_DEVICE_BUTTON_GAMEPAD_LS,  // Left stick press
+        INPUT_DEVICE_BUTTON_GAMEPAD_RS,  // Right stick press
+
+        // Add more device buttons as needed
     };
 
     enum class InputEventType {
@@ -33,12 +63,15 @@ namespace engine::core::runtime::input {
         INPUT_EVENT_TYPE_GAMEPAD_AXIS_MOVE
     };
 
-    enum class InputKey {
-        INPUT_KEY_UNKNOWN,
-        INPUT_KEY_SPACE,
-        INPUT_KEY_UP,
-        INPUT_KEY_DOWN,
-        INPUT_KEY_LEFT,
-        INPUT_KEY_RIGHT,
+    enum InputDeviceAxis {
+        INPUT_DEVICE_AXIS_UNKNOWN,
+
+        INPUT_DEVICE_AXIS_MOUSE,
+
+        INPUT_DEVICE_AXIS_GAMEPAD_THUMB_LEFT,
+        INPUT_DEVICE_AXIS_GAMEPAD_THUMB_RIGHT_X,
+        INPUT_DEVICE_AXIS_GAMEPAD_THUMB_RIGHT_Y,
+        INPUT_DEVICE_AXIS_GAMEPAD_TRIGGER_LEFT,
+        INPUT_DEVICE_AXIS_GAMEPAD_TRIGGER_RIGHT,
     };
 }

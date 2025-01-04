@@ -4,9 +4,12 @@ project(RiftEngine_Core_Runtime VERSION 0.8.7)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third_party/glm)
+
 add_library(
 		RiftEngine_Core_Runtime
         private/Engine/Core/Runtime/Memory/MemArena_Standard.cpp
+        private/Engine/Core/Runtime/StorageSystem.cpp
 )
 
 target_include_directories(
@@ -20,4 +23,4 @@ target_compile_definitions(
         PRIVATE ENGINE_BUILD_LIBRARY
 )
 
-# target_link_libraries(RiftEngine_Core_Runtime glm)
+target_link_libraries(RiftEngine_Core_Runtime glm::glm)
