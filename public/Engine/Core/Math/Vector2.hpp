@@ -19,8 +19,8 @@ namespace engine::core::math {
         float x;
         float y;
 
-        Vector2 abs() const {
-            return {::abs(x), ::abs(y)};
+        Vector2 AbsoluteVec() const {
+            return {(float) ::abs(x), (float) ::abs(y)};
         }
 
         Vector2 &operator+=(const Vector2 &r) {

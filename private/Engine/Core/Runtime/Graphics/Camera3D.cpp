@@ -1,7 +1,7 @@
-#include <Engine/Core/Runtime/Graphics/Camera3D.hpp>
-
 // prevent GLM experimental extension error
 #define GLM_ENABLE_EXPERIMENTAL
+
+#include <Engine/Core/Runtime/Graphics/Camera3D.hpp>
 
 #include <glm/gtx/transform.hpp>
 

@@ -16,6 +16,7 @@ namespace engine::core::runtime::input {
         virtual std::string GetName() const = 0;
 
         virtual InputDeviceType GetType() const = 0;
+        virtual int GetPlayerId() = 0;
 //        virtual bool GetButton(InputDeviceButton button) = 0;
     };
 

@@ -8,7 +8,7 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third_party/glm)
 
 add_library(
 		RiftEngine_Core_Runtime
-        private/Engine/Core/Runtime/Memory/MemArena_Standard.cpp
+#        private/Engine/Core/Runtime/Memory/MemArena_Standard.cpp
         private/Engine/Core/Runtime/StorageSystem.cpp
         private/Engine/Core/Runtime/App.cpp
         private/Engine/Core/Runtime/AppHost.cpp
@@ -27,4 +27,4 @@ target_compile_definitions(
         PRIVATE ENGINE_BUILD_LIBRARY
 )
 
-target_link_libraries(RiftEngine_Core_Runtime glm::glm)
+target_link_libraries(RiftEngine_Core_Runtime glm::glm Rift_Runtime_Logging)

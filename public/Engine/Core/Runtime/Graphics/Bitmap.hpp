@@ -19,7 +19,7 @@ namespace engine::core::runtime::graphics {
             return *this;
         }
 
-        std::vector<Color> GetPixels() const {
+        const std::vector<Color> & GetPixels() const {
             return m_Data;
         }
 

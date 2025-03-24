@@ -14,6 +14,7 @@ namespace engine::core::runtime {
 
         virtual void ProcessEvents() = 0;
         virtual void* GetHandle() = 0;
+        virtual void* GetDeviceCtx() = 0;
         virtual graphics::IGraphicsContext* GetGraphicsContext() = 0;
 
         virtual void Show() = 0;
@@ -23,7 +24,6 @@ namespace engine::core::runtime {
 
         virtual void SetTitle(std::string_view title) = 0;
 
-        // ToDo: make Vector2 class
         virtual void SetPosition(const math::Vector2& position) = 0;
         virtual math::Vector2 GetPosition() = 0;
 

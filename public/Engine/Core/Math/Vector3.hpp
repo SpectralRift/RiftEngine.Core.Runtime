@@ -22,8 +22,8 @@ namespace engine::core::math {
         float y;
         float z;
 
-        Vector3 abs() const {
-            return {::abs(x), ::abs(y), ::abs(z)};
+        Vector3 AbsoluteVec() const {
+            return {(float) ::abs(x), (float) ::abs(y), (float) ::abs(z)};
         }
 
         Vector3 &operator+=(const Vector3 &r) {
