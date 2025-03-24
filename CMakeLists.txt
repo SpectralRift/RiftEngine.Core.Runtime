@@ -12,7 +12,6 @@ add_library(
         private/Engine/Core/Runtime/StorageSystem.cpp
         private/Engine/Core/Runtime/App.cpp
         private/Engine/Core/Runtime/AppHost.cpp
-        private/Engine/Core/Runtime/Input/InputManager.cpp
         private/Engine/Core/Runtime/Graphics/Camera3D.cpp
 )
 
