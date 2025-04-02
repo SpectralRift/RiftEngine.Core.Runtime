@@ -1,23 +1,29 @@
 cmake_minimum_required(VERSION 3.14)
-project(RiftEngine::CoreRuntime VERSION 0.8.7)
+project(RiftEngine_Core_Runtime VERSION 0.8.7)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third_party/glm)
+
 add_library(
-        RiftEngine::CoreRuntime
-        private/engine/core/a.cpp
+		RiftEngine_Core_Runtime
+#        private/Engine/Core/Runtime/Memory/MemArena_Standard.cpp
+        private/Engine/Core/Runtime/StorageSystem.cpp
+        private/Engine/Core/Runtime/App.cpp
+        private/Engine/Core/Runtime/DesktopHost.cpp
+        private/Engine/Core/Runtime/Graphics/Camera3D.cpp
 )
 
 target_include_directories(
-		RiftEngine::CoreRuntime
+		RiftEngine_Core_Runtime
         PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/public"
         PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/private"
 )
 
 target_compile_definitions(
-		RiftEngine::CoreRuntime
+		RiftEngine_Core_Runtime
         PRIVATE ENGINE_BUILD_LIBRARY
 )
 
-# target_link_libraries(RiftEngine::CoreRuntime glm)
+target_link_libraries(RiftEngine_Core_Runtime glm::glm Rift_Runtime_Logging Rift_Input Rift_Renderer_SimpleRenderer)
