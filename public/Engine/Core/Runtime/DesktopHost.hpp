@@ -6,14 +6,15 @@ namespace engine::core::runtime {
     struct DesktopHost : public AppHost {
         virtual ~DesktopHost() = default;
 
-        bool Initialize();
+        virtual bool Initialize() override;
 
-        void Run(std::shared_ptr<App> app);
+        virtual void Run(std::shared_ptr<App> app) override;
 
-        void Shutdown();
+        virtual void Shutdown() override;
 
-        std::shared_ptr<IWindow> GetMainWindow();
+        virtual std::shared_ptr<IWindow> GetMainWindow() override;
+
     protected:
-        std::shared_ptr<IWindow> m_MainWindow;
+        virtual void Step() override;
     };
 }

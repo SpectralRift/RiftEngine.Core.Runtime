@@ -1,10 +1,13 @@
 #pragma once
 
+#include <memory>
+
 namespace engine::core::runtime {
     struct AppHost;
 
     struct App {
-        App(AppHost &host) : host(host) {}
+        App(AppHost* host) : m_Host(host) {}
+
         virtual ~App() = default;
 
         virtual bool Initialize() {
@@ -13,13 +16,15 @@ namespace engine::core::runtime {
 
         virtual void Update(float deltaTime) {}
 
-        virtual void Render() {}
+        virtual void Render(float deltaTime) {}
 
         virtual void Shutdown() {}
 
-        static App* GetCurrentApp();
+        AppHost* GetHost() { return m_Host; }
+
+        static App *GetActiveApp();
 
     protected:
-        AppHost &host;
+        AppHost* m_Host;
     };
 }

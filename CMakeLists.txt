@@ -11,7 +11,7 @@ add_library(
 #        private/Engine/Core/Runtime/Memory/MemArena_Standard.cpp
         private/Engine/Core/Runtime/StorageSystem.cpp
         private/Engine/Core/Runtime/App.cpp
-        private/Engine/Core/Runtime/AppHost.cpp
+        private/Engine/Core/Runtime/DesktopHost.cpp
         private/Engine/Core/Runtime/Graphics/Camera3D.cpp
 )
 
@@ -26,4 +26,4 @@ target_compile_definitions(
         PRIVATE ENGINE_BUILD_LIBRARY
 )
 
-target_link_libraries(RiftEngine_Core_Runtime glm::glm Rift_Runtime_Logging)
+target_link_libraries(RiftEngine_Core_Runtime glm::glm Rift_Runtime_Logging Rift_Input Rift_Renderer_SimpleRenderer)
