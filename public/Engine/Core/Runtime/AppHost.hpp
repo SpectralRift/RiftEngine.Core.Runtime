@@ -9,10 +9,6 @@
 namespace engine::core::runtime {
     struct IWindow;
 
-    namespace graphics {
-        struct IRenderer;
-    }
-
     struct AppHost {
         AppHost() : b_RequestedShutdown(false), m_App(nullptr), m_MainWindow(nullptr) {}
 

@@ -3,8 +3,8 @@
 #include <Engine/Core/Runtime/AppHost.hpp>
 
 namespace engine::core::runtime {
-    struct DesktopHost : public AppHost {
-        virtual ~DesktopHost() = default;
+    struct BasicAppHost : public AppHost {
+        virtual ~BasicAppHost() = default;
 
         virtual bool Initialize() override;
 
