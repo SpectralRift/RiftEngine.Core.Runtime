@@ -1,4 +1,4 @@
-#include <Engine/Core/Runtime/DesktopHost.hpp>
+#include <Engine/Core/Runtime/BasicAppHost.hpp>
 #include <Engine/Core/Runtime/Graphics/IRenderer.hpp>
 #include <Engine/Core/Platform.hpp>
 #include <Engine/Runtime/Logger.hpp>
@@ -10,15 +10,15 @@ namespace engine::core::runtime {
     // refer to the global app instance which is used by App::GetActiveApp() method
     extern App *g_CurrentApp;
 
-    static engine::runtime::Logger g_LoggerDesktopHost("DesktopHost");
+    static engine::runtime::Logger g_LoggerBasicAppHost("BasicAppHost");
 
-    bool DesktopHost::Initialize() {
-        g_LoggerDesktopHost.Log(engine::runtime::LOG_LEVEL_DEBUG, "Initializing desktop host...");
+    bool BasicAppHost::Initialize() {
+        g_LoggerBasicAppHost.Log(engine::runtime::LOG_LEVEL_DEBUG, "Initializing desktop host...");
 
         m_MainWindow = Platform::CreateAppWindow();
 
         if (!m_MainWindow || !m_MainWindow->Create()) {
-            g_LoggerDesktopHost.Log(engine::runtime::LOG_LEVEL_ERROR, "Failed to create the main application window.");
+            g_LoggerBasicAppHost.Log(engine::runtime::LOG_LEVEL_ERROR, "Failed to create the main application window.");
 
             Platform::ShowMessageBox(
                     "SpectralRift Engine Error",
@@ -34,16 +34,16 @@ namespace engine::core::runtime {
         m_MainWindow->SetTitle("SpectralRift Player (" + engine::core::Platform::GetName() + " with " +
                                m_MainWindow->GetGraphicsContext()->GetBackend()->GetName() + ")");
 
-        g_LoggerDesktopHost.Log(engine::runtime::LOG_LEVEL_INFO, "Desktop host initialized.");
+        g_LoggerBasicAppHost.Log(engine::runtime::LOG_LEVEL_INFO, "Desktop host initialized.");
 
         return true;
     }
 
-    void DesktopHost::Run(std::shared_ptr<App> app) {
-        g_LoggerDesktopHost.Log(engine::runtime::LOG_LEVEL_DEBUG, "Preparing to run the app...");
+    void BasicAppHost::Run(std::shared_ptr<App> app) {
+        g_LoggerBasicAppHost.Log(engine::runtime::LOG_LEVEL_DEBUG, "Preparing to run the app...");
 
         if (!app) {
-            g_LoggerDesktopHost.Log(engine::runtime::LOG_LEVEL_ERROR, "Failed to run the app instance provided to the host as the instance is NULL.");
+            g_LoggerBasicAppHost.Log(engine::runtime::LOG_LEVEL_ERROR, "Failed to run the app instance provided to the host as the instance is NULL.");
             Platform::ShowMessageBox("SR1 Engine Error",
                                      "Failed to run the app instance provided to the host as the instance is NULL.");
             goto LBL_SHUTDOWN;
@@ -54,7 +54,7 @@ namespace engine::core::runtime {
         m_MainWindow->GetGraphicsContext()->Bind();
 
         if (!m_App->Initialize()) {
-            g_LoggerDesktopHost.Log(engine::runtime::LOG_LEVEL_ERROR, "Failed to initialize the application.");
+            g_LoggerBasicAppHost.Log(engine::runtime::LOG_LEVEL_ERROR, "Failed to initialize the application.");
             Platform::ShowMessageBox("SR1 Engine Error", "Failed to initialize the application.");
             goto LBL_SHUTDOWN;
         }
@@ -64,7 +64,7 @@ namespace engine::core::runtime {
         b_RequestedShutdown = false;
         m_MainWindow->Show();
 
-        g_LoggerDesktopHost.Log(engine::runtime::LOG_LEVEL_DEBUG, "Entering app loop.");
+        g_LoggerBasicAppHost.Log(engine::runtime::LOG_LEVEL_DEBUG, "Entering app loop.");
 
         while (m_MainWindow->IsValid() && !b_RequestedShutdown) {
             Step();
@@ -74,7 +74,7 @@ namespace engine::core::runtime {
         Shutdown();
     }
 
-    void DesktopHost::Step() {
+    void BasicAppHost::Step() {
         m_MainWindow->ProcessEvents();
         input::InputManager::Instance()->ProcessEvents();
 
@@ -94,17 +94,17 @@ namespace engine::core::runtime {
         m_MainWindow->GetGraphicsContext()->Present();
     };
 
-    void DesktopHost::Shutdown() {
-        g_LoggerDesktopHost.Log(engine::runtime::LOG_LEVEL_DEBUG, "Shutting down the desktop host...");
+    void BasicAppHost::Shutdown() {
+        g_LoggerBasicAppHost.Log(engine::runtime::LOG_LEVEL_DEBUG, "Shutting down the desktop host...");
 
         if (m_App) {
-            g_LoggerDesktopHost.Log(engine::runtime::LOG_LEVEL_DEBUG, "Shutting down the application...");
+            g_LoggerBasicAppHost.Log(engine::runtime::LOG_LEVEL_DEBUG, "Shutting down the application...");
             m_App->Shutdown();
             m_App = nullptr;
         }
 
         if (m_MainWindow) {
-            g_LoggerDesktopHost.Log(engine::runtime::LOG_LEVEL_DEBUG, "Destroying the main application window...");
+            g_LoggerBasicAppHost.Log(engine::runtime::LOG_LEVEL_DEBUG, "Destroying the main application window...");
             m_MainWindow->Hide();
             m_MainWindow->Destroy();
 
@@ -116,7 +116,7 @@ namespace engine::core::runtime {
         }
     }
 
-    std::shared_ptr<IWindow> DesktopHost::GetMainWindow() {
+    std::shared_ptr<IWindow> BasicAppHost::GetMainWindow() {
         return m_MainWindow;
     }
 }

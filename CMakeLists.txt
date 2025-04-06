@@ -11,7 +11,7 @@ add_library(
 #        private/Engine/Core/Runtime/Memory/MemArena_Standard.cpp
         private/Engine/Core/Runtime/StorageSystem.cpp
         private/Engine/Core/Runtime/App.cpp
-        private/Engine/Core/Runtime/DesktopHost.cpp
+        private/Engine/Core/Runtime/BasicAppHost.cpp
         private/Engine/Core/Runtime/Graphics/Camera3D.cpp
 )
 
