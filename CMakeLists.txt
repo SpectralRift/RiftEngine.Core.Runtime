@@ -26,4 +26,6 @@ target_compile_definitions(
         PRIVATE ENGINE_BUILD_LIBRARY
 )
 
-target_link_libraries(RiftEngine_Core_Runtime glm::glm Rift_Runtime_Logging Rift_Input Rift_Renderer_SimpleRenderer)
+rift_resolve_module_libs("Rift.Runtime.Logging;Rift.Input" RIFT_RUNTIME_DEPS)
+
+target_link_libraries(RiftEngine_Core_Runtime glm::glm RiftEngine ${RIFT_RUNTIME_DEPS})
