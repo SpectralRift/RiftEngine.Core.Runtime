@@ -1,0 +1,19 @@
+{
+  "module": {
+    "name": "Rift.Core.Runtime",
+    "category": "Runtime",
+    "version": "0.0.1",
+    "author": "r0neko",
+    "description": "RiftEngine Core Runtime Module",
+    "homepage": "https://github.com/SpectralRift/RiftEngine.Core.Runtime",
+    "type": "monolithic",
+    "cmakeProject": "RiftEngine_Core_Runtime"
+  },
+  "dependencies": [
+    "Rift.Runtime.Logging",
+    "Rift.Input"
+  ],
+  "supportedTargets": [
+    "all"
+  ]
+}
